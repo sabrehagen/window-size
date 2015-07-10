@@ -7,7 +7,12 @@
 
 const tty = require('tty');
 
-module.exports = (function() {
+module.exports = {
+    height : function() { return getDimensions().height; },
+    width : function() { return getDimensions().width; }
+};
+
+function getDimensions() {
   var width;
   var height;
 
@@ -26,5 +31,5 @@ module.exports = (function() {
     new Error('window-size could not get size with tty or process.stdout.');
   }
 
-  return {height: height, width: width};
-})();
+  return { height: height, width: width };
+};
